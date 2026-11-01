@@ -1,22 +1,24 @@
 # React Notes
 
-## 1. Props
+I have made these notes while learning React. These are the topics I have practised.
 
-Props means properties.
+## Props
 
-- Props are used to pass data from parent component to child component.
-- Props are read-only.
-- We can reuse a component with different data.
+Props means properties. We use props to pass data from one component to another, mostly from parent to child.
+
+- Props are passed like attributes.
+- We receive props in the child component.
+- Props are read-only, we cannot directly change them in child component.
+- We can pass strings, numbers, arrays, objects etc.
+- Props help us reuse components.
 
 Example:
 
 App.jsx
 
 ```jsx
-import Student from "./Student";
-
 function App() {
-  return <Student name="Jai" course="React" />;
+  return <Student name="Jai" age={20} />;
 }
 
 export default App;
@@ -25,11 +27,11 @@ export default App;
 Student.jsx
 
 ```jsx
-function Student({ name, course }) {
+function Student({ name, age }) {
   return (
     <div>
       <h2>{name}</h2>
-      <p>{course}</p>
+      <p>{age}</p>
     </div>
   );
 }
@@ -37,20 +39,25 @@ function Student({ name, course }) {
 export default Student;
 ```
 
-## 2. State
+Here we are passing name and age from App to Student using props.
 
-State is used to store data inside a component. State can change when the user performs an action.
+## State
+
+State is used to store data in a component. We use useState to create state in React.
 
 - useState is a React Hook.
-- It is used to create and update state.
-- When state changes, React updates the UI.
-- We should not change state directly.
+- State can change with user actions.
+- We use a setter function to update state.
+- When state changes React updates the UI.
+- We should not update state directly.
 
 Syntax:
 
 ```jsx
 const [count, setCount] = useState(0);
 ```
+
+Here count is the current value and setCount is used to update it. The initial value is 0.
 
 Example:
 
@@ -78,20 +85,24 @@ function State() {
 export default State;
 ```
 
-## 3. Events
+When we click Increase the count increases by 1. When we click Decrease it decreases by 1.
 
-Events are actions performed by the user, like clicking a button or typing in an input.
+## Events
 
-- Events are handled using event handler functions.
+Events are actions performed by the user. For example clicking a button, typing in an input or submitting a form.
+
+- We use event handlers to perform actions.
+- onClick is used when we click something.
+- onChange is used when input value changes.
+- onSubmit is used when we submit a form.
 - React event names use camelCase.
-- We use onClick for button clicks.
-- We use onChange for input changes.
-- We use onSubmit for form submission.
+- We pass a function to the event handler.
 
 Example:
 
 ```jsx
 function Event() {
+
   function handleClick() {
     alert("Button clicked!");
   }
@@ -110,20 +121,14 @@ function Event() {
 export default Event;
 ```
 
-## 4. Difference between Props, State and Events
+Here handleClick is called when we click the button.
 
-| Props | State | Events |
-|---|---|---|
-| Pass data between components | Store changing data | Handle user actions |
-| Read-only in child | Can be updated | Call a function |
-| Example: Student name | Example: Counter | Example: Button click |
+## Summary
 
-## 5. Quick Revision
-
-- Props: Pass data from parent to child.
-- State: Store and update data.
-- useState: Hook used for state.
-- Events: Handle user actions.
-- JSX: HTML-like syntax used in React.
-- Component: Reusable part of an application.
-- Re-render: React updates the UI when state changes.
+- Props are used to pass data between components.
+- State is used to store and update data.
+- Events are used to handle user actions.
+- useState is used to create state.
+- JSX allows us to write HTML-like code in JavaScript.
+- A component is a function that returns JSX.
+- Re-render means React updates the UI when state changes.
