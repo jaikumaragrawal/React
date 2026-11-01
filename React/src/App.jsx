@@ -1,19 +1,11 @@
 
-import Props from "./props";
+import State from "./State";
 
 function App() {
   return (
     <div>
-      <h1>Student Management System</h1>
-
-      <Props
-        name="Jai Kumar"
-        rollNo="101"
-        email="jai@example.com"
-        course="React + Next.js"
-        college="Kalvium"
-        skills="HTML, CSS, JavaScript, React"
-      />
+      <h1>React Learning</h1>
+      <State />
     </div>
   );
 }
